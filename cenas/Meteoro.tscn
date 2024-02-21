@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://ltx2au65wid5"]
+
+[ext_resource type="Script" path="res://scripts/NaveInimigaVerde.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ltr270qt4qoa" path="res://assets/MeteoroDestruido.png" id="2_27lag"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_85gfw"]
+load_path = "res://.godot/imported/Meteoro.png-b21878aa762ef7301d4fe6163967bc8a.ctex"
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(68.1818, 50)
+
+[sub_resource type="Animation" id="Animation_d0gg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_85gfw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_r1uy5"]
+resource_name = "destruido"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_27lag")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_m20cx"]
+resource_name = "rotacao"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_85gfw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0osd"]
+_data = {
+"RESET": SubResource("Animation_d0gg8"),
+"destruido": SubResource("Animation_r1uy5"),
+"rotacao": SubResource("Animation_m20cx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qo03"]
+size = Vector2(69.0909, 42.7273)
+
+[node name="Meteoro" type="Node2D"]
+scale = Vector2(2.2, 2.2)
+
+[node name="Meteoro" type="CharacterBody2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1")
+
+[node name="Animation" type="Timer" parent="Meteoro"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Meteoro"]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_85gfw")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meteoro"]
+position = Vector2(0.909092, 7)
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Meteoro"]
+libraries = {
+"": SubResource("AnimationLibrary_y0osd")
+}
+autoplay = "RESET"
+
+[node name="Area2D" type="Area2D" parent="Meteoro"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meteoro/Area2D"]
+position = Vector2(0.909091, 11.3636)
+shape = SubResource("RectangleShape2D_7qo03")
+
+[node name="Dificuldade" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Meteoro/Animation" to="Meteoro" method="_on_animation_timeout"]
+[connection signal="body_entered" from="Meteoro/Area2D" to="Meteoro" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Dificuldade" to="Meteoro" method="_on_Dificuldade_timeout"]

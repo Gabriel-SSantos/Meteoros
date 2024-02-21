@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cteirikhh8pos"]
+
+[ext_resource type="Script" path="res://scripts/EscudoItem.gd" id="1_rsaqc"]
+[ext_resource type="Texture2D" uid="uid://cyf1qvc54xd33" path="res://assets/Escudo.png" id="2_tofvd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4674"]
+radius = 63.1981
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aebu2"]
+radius = 111.146
+
+[node name="EscudoItem" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.01
+gravity_scale = 0.02
+linear_velocity = Vector2(0, 40)
+script = ExtResource("1_rsaqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_tofvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_n4674")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_aebu2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://k77uuswyffu7"]
+
+[ext_resource type="Script" path="res://scripts/campo_deforca.gd" id="1_cjkcy"]
+[ext_resource type="Texture2D" uid="uid://cpc7kkdfhs1uc" path="res://assets/CampoDeForca.png" id="1_fe3n8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwbb7"]
+radius = 67.5
+
+[node name="CampoDeforca" type="StaticBody2D"]
+modulate = Color(1, 1, 1, 0.666667)
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_cjkcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jwbb7")
+
+[node name="CampoDeForca" type="Sprite2D" parent="."]
+texture = ExtResource("1_fe3n8")

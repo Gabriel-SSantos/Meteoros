@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6ks6xfft7yt"]
+
+[ext_resource type="Script" path="res://scripts/Nave.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://w4fa140jorkq" path="res://assets/NaveDesvio.png" id="2_00nwr"]
+
+[sub_resource type="Animation" id="Animation_or776"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_su4mr"]
+load_path = "res://.godot/imported/NaveDesvio.png-4f6513850b31834f69b186384f6223a2.ctex"
+
+[sub_resource type="Animation" id="Animation_dx5if"]
+resource_name = "virar"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_su4mr")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6r8ed"]
+resource_name = "virardir"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep3bo"]
+_data = {
+"RESET": SubResource("Animation_or776"),
+"virar": SubResource("Animation_dx5if"),
+"virardir": SubResource("Animation_6r8ed")
+}
+
+[node name="Nave" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(1.5, 1.5)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13.3333, -12, -39.3333, 28.6667, 38, 29.3333, 1.33333, -29.3333)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep3bo")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.666667, -34.6667)
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(0.359028, 0.889549)
+scale = Vector2(1.00781, 0.985119)
+polygon = PackedVector2Array(-0.888889, -0.888889, -28.8889, 43.1111, -18.2222, 45.7778, 28, 45.7778, 27.5556, 42.6667)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_00nwr")
+hframes = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

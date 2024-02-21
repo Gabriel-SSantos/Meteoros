@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtvps0uqr466m"]
+
+[ext_resource type="Texture2D" uid="uid://br1j4rrbl4yy" path="res://assets/Space Background.png" id="1_2d2pk"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_qbayj"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_qbayj")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 1920)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 1087.0
+offset_bottom = 1927.0
+texture = ExtResource("1_2d2pk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyc8cc6gge5l"]
+
+[ext_resource type="FontFile" uid="uid://xwxdl5qhh6q1" path="res://assets/Minecraft.ttf" id="1"]
+[ext_resource type="Script" path="res://ControleTela.gd" id="2"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/16/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/0/size = Vector2(0, 0)
+cache/0/16/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/16/0/glyphs/0/texture_idx = -1
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="ControleTela" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.580392)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -296.0
+offset_right = 133.0
+offset_bottom = 11.0001
+scale = Vector2(1.6, 1.6)
+theme_override_fonts/font = SubResource("1")
+text = "Funcionamento do Jogo:
+
+Utilize os botoes para desviar das naves inimigas
+
+Sobreviva por 1:30 minutos
+
+A cada 20 segundos a velocidade aumenta 
+
+Ps.: Caso esteja jogando em um Pc, as setas 
+movem o personagem"
+
+[node name="retornar" type="Button" parent="."]
+modulate = Color(0.847059, 0.698039, 0.25098, 1)
+layout_mode = 0
+offset_left = 467.0
+offset_top = 1202.0
+offset_right = 516.0
+offset_bottom = 1222.0
+scale = Vector2(3, 3)
+text = "Voltar"
+
+[connection signal="pressed" from="retornar" to="." method="_on_retornar_pressed"]
