@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" path="res://cenas/botao.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/botoes.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://b28j4gnuryeua" path="res://assets/background.jpg" id="3"]
+[ext_resource type="Texture2D" uid="uid://br1j4rrbl4yy" path="res://assets/Space Background.png" id="3"]
 [ext_resource type="FontFile" uid="uid://xwxdl5qhh6q1" path="res://assets/Minecraft.ttf" id="4"]
 [ext_resource type="Texture2D" uid="uid://cdsppjp7o8igh" path="res://assets/Meteoro.png" id="4_p2v7r"]
 [ext_resource type="Texture2D" uid="uid://w4fa140jorkq" path="res://assets/NaveDesvio.png" id="5_afba0"]

@@ -9,8 +9,8 @@ func _process(delta):
 		Global.ativo = true
 	if Input.is_action_just_pressed("pausarB"):
 		Global.ativo = false
-	if Global.escudoAtivo:
-		get_node("Nave").add_child(Escudo)
+	#if Global.escudoAtivo:
+		#get_node("Nave").add_child(Escudo)
 	if(Global.vida == 0):
 		definirDerrota()
 		var Telafinal = load("res://cenas/telafinal.tscn").instantiate()
@@ -33,7 +33,7 @@ func _on_Area2D_body_entered(body):
 		Global.score += 1
 		body.global_position = Vector2(spawns[randi()%spawns.size()])
 		escudosItens += 1
-		if escudosItens == 5:
+		if escudosItens == 50:
 			escudosItens = 0 
 			liberarEscudo()
 			

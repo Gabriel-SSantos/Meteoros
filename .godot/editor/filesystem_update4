@@ -1,0 +1,6 @@
+res://default_env.tres
+res://cenas/TelaDeInicio.tscn
+res://cenas/Mundo.tscn
+res://cenas/Nave.tscn
+res://cenas/escudo_item.tscn
+res://cenas/campo_deforca.tscn

@@ -1,11 +1,13 @@
 extends RigidBody2D
 
 var rang = RandomNumberGenerator.new()
-
+var Escudo = load("res://cenas/campo_deforca.tscn").instantiate()
+	
 func _on_area_2d_body_entered(body):
 	if body.name == "Nave":
-		print("nave")
-		Global.escudoAtivo = true
+		if !Global.escudoAtivo:
+			body.add_child(Escudo)
+			Global.escudoAtivo = true
 		queue_free()
 	pass # Replace with function body.
 
