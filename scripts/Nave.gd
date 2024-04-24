@@ -6,10 +6,10 @@ func _process(delta):
 	posicao = Vector2.ZERO
 	$AnimationPlayer.play("RESET")
 	if(Global.ativo):
-		if Input.is_action_pressed("mover_esquerda"):
+		if Input.is_action_pressed("mover_esquerda") || Global.virandoEsq:
 			posicao.x -= velocidade
 			$AnimationPlayer.play("virar")
-		if Input.is_action_pressed("mover_direita"):
+		if Input.is_action_pressed("mover_direita") || Global.virandoDir:
 			posicao.x += velocidade
 			$AnimationPlayer.play("virardir")
 	set_velocity(posicao)

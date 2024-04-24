@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp5e1wbjsl4cq"]
+
+[ext_resource type="Script" path="res://scripts/vida_item.gd" id="1_03faj"]
+[ext_resource type="Texture2D" uid="uid://bp7ijbj18xfs" path="res://assets/vidaItem.png" id="1_vycic"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4siwh"]
+radius = 60.531
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vndiv"]
+radius = 78.16
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.85, 0.85)
+script = ExtResource("1_03faj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_vycic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.85, 0.85)
+shape = SubResource("CircleShape2D_4siwh")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.85, 0.85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.85, 0.85)
+shape = SubResource("CircleShape2D_vndiv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,7 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://nvglwdmx63ef"]
+[gd_scene load_steps=20 format=3 uid="uid://nvglwdmx63ef"]
 
-[ext_resource type="Texture2D" uid="uid://cvg2815mbdxw3" path="res://assets/bnt65.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://d147a2q4wkql6" path="res://assets/bnt652.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://dtljijhrggiij" path="res://assets/botaomodeloplay.png" id="4_17nrh"]
 [ext_resource type="Texture2D" uid="uid://cf2f77hn1wg24" path="res://assets/botaomodelopause.png" id="5_x36q2"]
 [ext_resource type="Script" path="res://scripts/Controles.gd" id="6"]
@@ -39,22 +37,6 @@
 
 [node name="Controles" type="CanvasLayer"]
 script = ExtResource("6")
-
-[node name="direita" type="TouchScreenButton" parent="."]
-modulate = Color(1, 1, 1, 0.984314)
-position = Vector2(900, 1674)
-scale = Vector2(2.5, 2.5)
-texture_normal = ExtResource("1")
-passby_press = true
-action = "mover_direita"
-
-[node name="esquerda" type="TouchScreenButton" parent="."]
-modulate = Color(1, 1, 1, 0.984314)
-position = Vector2(24, 1674)
-scale = Vector2(2.5, 2.5)
-texture_normal = ExtResource("2")
-passby_press = true
-action = "mover_esquerda"
 
 [node name="Play" type="Button" parent="."]
 offset_left = 935.0

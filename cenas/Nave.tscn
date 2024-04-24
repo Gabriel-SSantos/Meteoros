@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6ks6xfft7yt"]
+[gd_scene load_steps=9 format=3 uid="uid://c6ks6xfft7yt"]
 
 [ext_resource type="Script" path="res://scripts/Nave.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://w4fa140jorkq" path="res://assets/NaveDesvio.png" id="2_00nwr"]
+[ext_resource type="PackedScene" uid="uid://3w8dux7r6tk0" path="res://cenas/ControleNave.tscn" id="3_1lkwq"]
 
 [sub_resource type="Animation" id="Animation_or776"]
 length = 0.001
@@ -125,5 +126,7 @@ polygon = PackedVector2Array(-0.888889, -0.888889, -28.8889, 43.1111, -18.2222, 
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_00nwr")
 hframes = 3
+
+[node name="ControleNave" parent="." instance=ExtResource("3_1lkwq")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

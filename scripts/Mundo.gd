@@ -3,7 +3,9 @@ extends Node2D
 
 @onready var spawns = [$Position1.global_position,$Position2.global_position,$Position3.global_position,$Position4.global_position,$Position5.global_position]
 var Escudo = load("res://cenas/campo_deforca.tscn").instantiate()
-	
+var pontosLimitesMeteoro = 50
+var pontosLimitesVida = 30
+var vidaitens = 0
 func _process(delta):
 	if Input.is_action_just_pressed("continuarB"):
 		Global.ativo = true
@@ -27,14 +29,23 @@ func liberarEscudo():
 	EscudoItem.global_position.x = randi_range(10,spawns[4].x)
 	get_node("Itens").add_child(EscudoItem)
 	pass
+	
+func liberarVida():
+	var VidaItem = load("res://cenas/vida_item.tscn").instantiate()
+	VidaItem.global_position.x = randi_range(10,spawns[4].x)
+	get_node("Itens").add_child(VidaItem)
 
 func _on_Area2D_body_entered(body):
 	if (body.name == 'Meteoro'):
 		Global.score += 1
 		body.global_position = Vector2(spawns[randi()%spawns.size()])
 		escudosItens += 1
-		if escudosItens == 50:
+		vidaitens += 1
+		if escudosItens == pontosLimitesMeteoro:
 			escudosItens = 0 
+			pontosLimitesMeteoro += 30  
 			liberarEscudo()
-			
+		if Global.vida < 4 && vidaitens == pontosLimitesVida:
+			vidaitens = 0
+			liberarVida()
 	pass

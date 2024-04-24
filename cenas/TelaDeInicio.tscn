@@ -11,7 +11,7 @@
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(1, 0.321569, 0.419608, 1)
 
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -23591,8 +23591,8 @@ grow_vertical = 2
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(539.999, 959.001)
-scale = Vector2(1.66154, 1.65917)
+position = Vector2(538, 957)
+scale = Vector2(2.164, 2.395)
 texture = ExtResource("3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -23617,7 +23617,7 @@ offset_bottom = 282.0
 scale = Vector2(5, 5)
 
 [node name="start" type="Button" parent="crotoles"]
-modulate = Color(0.968627, 1, 0.407843, 1)
+modulate = Color(0, 0.647059, 0.34902, 1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../pausar")
 theme = ExtResource("1")
@@ -23634,7 +23634,7 @@ text = "Iniciar"
 action = "iniciarB"
 
 [node name="info" type="Button" parent="crotoles"]
-modulate = Color(0.968627, 1, 0.407843, 1)
+modulate = Color(0, 0.647059, 0.34902, 1)
 layout_mode = 2
 theme = ExtResource("1")
 theme_override_colors/font_focus_color = Color(0.784314, 0.294118, 0.294118, 1)
@@ -23650,7 +23650,7 @@ text = "Info"
 action = "infoB"
 
 [node name="pausar" type="Button" parent="crotoles"]
-modulate = Color(0.968627, 1, 0.407843, 1)
+modulate = Color(0, 0.647059, 0.34902, 1)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../start")
 theme = ExtResource("1")
@@ -23667,23 +23667,23 @@ text = "Sair"
 action = "pausarB"
 
 [node name="Sprite2" type="Sprite2D" parent="."]
-position = Vector2(733, 655)
+position = Vector2(737, 491)
 texture = ExtResource("4_p2v7r")
 hframes = 4
 
 [node name="Sprite3" type="Sprite2D" parent="."]
-position = Vector2(533, 1037)
+position = Vector2(537, 877)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("5_afba0")
 hframes = 3
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(0.878431, 0.721569, 0.192157, 1)
+modulate = Color(0.494118, 0.839216, 0.388235, 1)
 layout_mode = 0
-offset_left = 190.0
-offset_top = 581.0
-offset_right = 863.0
-offset_bottom = 736.0
+offset_left = 194.0
+offset_top = 417.0
+offset_right = 869.0
+offset_bottom = 572.0
 theme_override_fonts/font = SubResource("6")
 theme_override_font_sizes/font_size = 154
 text = "Meteor  s"

@@ -9,7 +9,8 @@ var minutoLimite = 0
 var segundoLimite = 0
 var escudoAtivo = false
 var qtdEscudos = 0 
- 
+var virandoDir = false
+var virandoEsq = false
 func resetar():	
 	score = 0
 	vida = 4 

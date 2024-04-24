@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2pjv1yaabpd7"]
+[gd_scene load_steps=11 format=3 uid="uid://2pjv1yaabpd7"]
 
 [ext_resource type="PackedScene" uid="uid://c6ks6xfft7yt" path="res://cenas/Nave.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dtvps0uqr466m" path="res://cenas/background.tscn" id="2_uigw6"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ltx2au65wid5" path="res://cenas/Meteoro.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://nvglwdmx63ef" path="res://cenas/Controles.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://b0dxv3ndmlvvu" path="res://cenas/temporizador.tscn" id="9"]
-[ext_resource type="PackedScene" uid="uid://cteirikhh8pos" path="res://cenas/escudo_item.tscn" id="9_xa6vv"]
 [ext_resource type="PackedScene" uid="uid://c66tiay1tyqmb" path="res://cenas/vida.tscn" id="10"]
 
 [sub_resource type="RectangleShape2D" id="3"]
@@ -24,7 +23,6 @@ script = ExtResource("5")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(254.998, 415.804)
 stream = ExtResource("3")
-autoplay = true
 
 [node name="Nave" parent="." instance=ExtResource("1")]
 position = Vector2(530.998, 1412.8)
@@ -87,9 +85,6 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Itens" type="Node2D" parent="."]
-
-[node name="EscudoItem" parent="Itens" instance=ExtResource("9_xa6vv")]
-position = Vector2(533, 1118)
 
 [node name="Meteoro5" parent="." instance=ExtResource("7")]
 position = Vector2(661, -694)

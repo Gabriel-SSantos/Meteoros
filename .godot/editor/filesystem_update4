@@ -2,5 +2,7 @@ res://default_env.tres
 res://cenas/TelaDeInicio.tscn
 res://cenas/Mundo.tscn
 res://cenas/Nave.tscn
-res://cenas/escudo_item.tscn
-res://cenas/campo_deforca.tscn
+res://cenas/vida_item.tscn
+res://cenas/global.tscn
+res://cenas/ControleNave.tscn
+res://cenas/Controles.tscn

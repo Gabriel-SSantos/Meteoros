@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://3w8dux7r6tk0"]
+
+[ext_resource type="Script" path="res://scripts/ControleNave.gd" id="1_pbalg"]
+[ext_resource type="Texture2D" uid="uid://bah21f46b0yk4" path="res://assets/botaomodelo03_dir.png" id="5_1etdl"]
+[ext_resource type="Texture2D" uid="uid://df5rte4luwm18" path="res://assets/botaomodelo03_esq.png" id="6_0saha"]
+
+[node name="ControleNave" type="CanvasLayer"]
+script = ExtResource("1_pbalg")
+
+[node name="direita" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.984314)
+position = Vector2(865, 1618)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_1etdl")
+passby_press = true
+action = "mover_direita"
+
+[node name="esquerda" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.984314)
+position = Vector2(20, 1618)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("6_0saha")
+passby_press = true
+action = "mover_esquerda"

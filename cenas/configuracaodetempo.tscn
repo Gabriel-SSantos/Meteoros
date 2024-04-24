@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qfy74hv5ftrx"]
 
 [ext_resource type="StyleBox" path="res://butaostyle.tres" id="1"]
-[ext_resource type="Texture2D" uid="uid://b28j4gnuryeua" path="res://assets/background.jpg" id="2"]
+[ext_resource type="PackedScene" uid="uid://dtvps0uqr466m" path="res://cenas/background.tscn" id="2_w647l"]
 [ext_resource type="Script" path="res://scripts/configuracaodetempo.gd" id="3"]
 
 [node name="Control" type="Control"]
@@ -17,10 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3")
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(542.5, 964.5)
-scale = Vector2(1.66923, 1.65657)
-texture = ExtResource("2")
+[node name="Background" parent="." instance=ExtResource("2_w647l")]
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
